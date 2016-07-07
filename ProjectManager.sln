@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManager", "ProjectMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes", "Classes\Classes.csproj", "{CDEAFF5C-A94E-4F75-9456-F8F5A7062127}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{F77073C3-2856-4FDE-8746-679F96DCF1A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{8177F312-05EB-4021-A1AC-AAB0244A2AB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CDEAFF5C-A94E-4F75-9456-F8F5A7062127}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDEAFF5C-A94E-4F75-9456-F8F5A7062127}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDEAFF5C-A94E-4F75-9456-F8F5A7062127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77073C3-2856-4FDE-8746-679F96DCF1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77073C3-2856-4FDE-8746-679F96DCF1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77073C3-2856-4FDE-8746-679F96DCF1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77073C3-2856-4FDE-8746-679F96DCF1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8177F312-05EB-4021-A1AC-AAB0244A2AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8177F312-05EB-4021-A1AC-AAB0244A2AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8177F312-05EB-4021-A1AC-AAB0244A2AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8177F312-05EB-4021-A1AC-AAB0244A2AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
