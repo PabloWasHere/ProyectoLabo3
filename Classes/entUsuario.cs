@@ -112,6 +112,14 @@ namespace Classes
             set { categoriaF = value; }
         }
 
+        private char categoria;
+
+        public char Categoria
+        {
+            get { return categoria; }
+            set { categoria = value; }
+        }
+
         private string tipo;
 
         public string Tipo
