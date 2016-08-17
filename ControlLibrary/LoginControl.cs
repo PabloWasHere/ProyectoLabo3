@@ -17,29 +17,19 @@ namespace ControlLibrary
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
+        public event EventHandler LoginButtonClick;
+        public event EventHandler SignupLinkClick;
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (this.LoginButtonClick != null)
+                this.LoginButtonClick(this, e);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lnklblSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-        }
-
-        private void txbUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hintTextBox1_Leave(object sender, EventArgs e)
-        {
-
+            if (this.SignupLinkClick != null)
+                this.SignupLinkClick(this, e);
         }
     }
 }

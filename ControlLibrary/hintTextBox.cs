@@ -26,6 +26,14 @@ namespace ControlLibrary
             }
         }
 
+        private bool passwordTextbox = false;
+
+        public bool PasswordTextbox
+        {
+            get { return passwordTextbox; }
+            set { passwordTextbox = value; }
+        }
+
         public hintTextBox()
         {
             InitializeComponent();
@@ -40,6 +48,8 @@ namespace ControlLibrary
                 this.Text = "";
                 this.ForeColor = Color.Black;
                 firstPress = false;
+                if (passwordTextbox)
+                    this.PasswordChar = '*';
             }
             else
             {
@@ -54,6 +64,7 @@ namespace ControlLibrary
                 this.Text = hint;
                 this.ForeColor = Color.Gray;
                 firstPress = true;
+                this.PasswordChar = '\0';
             }
         }
     }

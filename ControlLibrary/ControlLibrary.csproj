@@ -54,10 +54,19 @@
       <DependentUpon>LoginControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SignupControl.Designer.cs">
+      <DependentUpon>SignupControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignupControl.resx">
+      <DependentUpon>SignupControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

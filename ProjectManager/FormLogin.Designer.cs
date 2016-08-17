@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.loginControl1 = new ControlLibrary.LoginControl();
             this.SuspendLayout();
+            // 
+            // loginControl1
+            // 
+            this.loginControl1.Location = new System.Drawing.Point(72, 30);
+            this.loginControl1.Name = "loginControl1";
+            this.loginControl1.Size = new System.Drawing.Size(460, 440);
+            this.loginControl1.TabIndex = 0;
+            this.loginControl1.Load += new System.EventHandler(this.loginControl1_Load);
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 522);
+            this.ClientSize = new System.Drawing.Size(604, 501);
+            this.Controls.Add(this.loginControl1);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
             this.ResumeLayout(false);
@@ -42,5 +52,8 @@
         }
 
         #endregion
+
+        private ControlLibrary.LoginControl loginControl1;
+
     }
 }

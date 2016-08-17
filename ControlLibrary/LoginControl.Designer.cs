@@ -39,7 +39,7 @@
             // chbRememberMe
             // 
             this.chbRememberMe.AutoSize = true;
-            this.chbRememberMe.Location = new System.Drawing.Point(101, 230);
+            this.chbRememberMe.Location = new System.Drawing.Point(106, 250);
             this.chbRememberMe.Name = "chbRememberMe";
             this.chbRememberMe.Size = new System.Drawing.Size(87, 17);
             this.chbRememberMe.TabIndex = 2;
@@ -48,41 +48,43 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(259, 225);
+            this.btnLogin.Location = new System.Drawing.Point(264, 245);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(90, 26);
             this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Ingresa";
+            this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lnklblSignUp
             // 
             this.lnklblSignUp.AutoSize = true;
             this.lnklblSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnklblSignUp.Location = new System.Drawing.Point(139, 311);
+            this.lnklblSignUp.Location = new System.Drawing.Point(144, 331);
             this.lnklblSignUp.Name = "lnklblSignUp";
             this.lnklblSignUp.Size = new System.Drawing.Size(172, 18);
             this.lnklblSignUp.TabIndex = 4;
             this.lnklblSignUp.TabStop = true;
             this.lnklblSignUp.Text = "O crea una nueva cuenta";
+            this.lnklblSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblSignUp_LinkClicked);
             // 
             // lblSession
             // 
             this.lblSession.AutoSize = true;
             this.lblSession.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSession.Location = new System.Drawing.Point(153, 72);
+            this.lblSession.Location = new System.Drawing.Point(158, 92);
             this.lblSession.Name = "lblSession";
             this.lblSession.Size = new System.Drawing.Size(145, 26);
             this.lblSession.TabIndex = 5;
             this.lblSession.Text = "Inicio de sesión";
-            this.lblSession.Click += new System.EventHandler(this.label1_Click);
             // 
             // hintTextBox2
             // 
             this.hintTextBox2.ForeColor = System.Drawing.Color.Gray;
             this.hintTextBox2.Hint = "Contraseña";
-            this.hintTextBox2.Location = new System.Drawing.Point(101, 172);
+            this.hintTextBox2.Location = new System.Drawing.Point(106, 192);
             this.hintTextBox2.Name = "hintTextBox2";
+            this.hintTextBox2.PasswordTextbox = true;
             this.hintTextBox2.Size = new System.Drawing.Size(248, 20);
             this.hintTextBox2.TabIndex = 7;
             this.hintTextBox2.Text = "Contraseña";
@@ -91,12 +93,12 @@
             // 
             this.hintTextBox1.ForeColor = System.Drawing.Color.Gray;
             this.hintTextBox1.Hint = "Usuario";
-            this.hintTextBox1.Location = new System.Drawing.Point(101, 125);
+            this.hintTextBox1.Location = new System.Drawing.Point(106, 145);
             this.hintTextBox1.Name = "hintTextBox1";
+            this.hintTextBox1.PasswordTextbox = false;
             this.hintTextBox1.Size = new System.Drawing.Size(248, 20);
             this.hintTextBox1.TabIndex = 6;
             this.hintTextBox1.Text = "Usuario";
-            this.hintTextBox1.Leave += new System.EventHandler(this.hintTextBox1_Leave);
             // 
             // LoginControl
             // 
@@ -110,7 +112,6 @@
             this.Controls.Add(this.chbRememberMe);
             this.Name = "LoginControl";
             this.Size = new System.Drawing.Size(460, 440);
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

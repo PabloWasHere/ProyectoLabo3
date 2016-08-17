@@ -16,5 +16,10 @@ namespace ProjectManager
         {
             InitializeComponent();
         }
+
+        private void loginControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
