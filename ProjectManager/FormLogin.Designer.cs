@@ -28,32 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginControl1 = new ControlLibrary.LoginControl();
+            this.logControl = new ControlLibrary.LoginControl();
+            this.signControl = new ControlLibrary.SignupControl();
             this.SuspendLayout();
             // 
-            // loginControl1
+            // logControl
             // 
-            this.loginControl1.Location = new System.Drawing.Point(72, 30);
-            this.loginControl1.Name = "loginControl1";
-            this.loginControl1.Size = new System.Drawing.Size(460, 440);
-            this.loginControl1.TabIndex = 0;
-            this.loginControl1.Load += new System.EventHandler(this.loginControl1_Load);
+            this.logControl.Location = new System.Drawing.Point(72, 30);
+            this.logControl.Name = "logControl";
+            this.logControl.Size = new System.Drawing.Size(460, 440);
+            this.logControl.TabIndex = 0;
+            this.logControl.SignupLinkClick += new System.EventHandler(this.logControl_SignupLinkClick);
+            this.logControl.Load += new System.EventHandler(this.logControl_Load);
+            // 
+            // signControl
+            // 
+            this.signControl.EmailField1 = true;
+            this.signControl.Location = new System.Drawing.Point(72, 418);
+            this.signControl.Name = "signControl";
+            this.signControl.Size = new System.Drawing.Size(460, 440);
+            this.signControl.TabIndex = 1;
+            this.signControl.UsernameHint = true;
+            this.signControl.WrongPassword = false;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 501);
-            this.Controls.Add(this.loginControl1);
+            this.ClientSize = new System.Drawing.Size(604, 516);
+            this.Controls.Add(this.signControl);
+            this.Controls.Add(this.logControl);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ControlLibrary.LoginControl loginControl1;
+        private ControlLibrary.LoginControl logControl;
+        private ControlLibrary.SignupControl signControl;
 
     }
 }
