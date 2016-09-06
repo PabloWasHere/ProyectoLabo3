@@ -44,17 +44,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGroup.Designer.cs">
+      <DependentUpon>FormGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListProjects.Designer.cs">
+      <DependentUpon>FormListProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListUsers.Designer.cs">
+      <DependentUpon>FormListUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNotifications.Designer.cs">
+      <DependentUpon>FormNotifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfile.Designer.cs">
+      <DependentUpon>FormProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProject.Designer.cs">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProfile.resx">
+      <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

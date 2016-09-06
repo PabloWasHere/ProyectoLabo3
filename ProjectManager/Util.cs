@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace ProjectManager
 {
@@ -35,5 +36,44 @@ namespace ProjectManager
 
         [DllImport("user32.dll")]
         private static extern bool AnimateWindow(IntPtr handle, int msec, int flags);
+
+        public static void slideToDestination(Form form, Control destination, Control control, int delay, Action onFinish)
+        {
+            new Task(() =>
+            {
+                int directionX = destination.Left > control.Left ? 1 : -1;
+                int directionY = destination.Top > control.Top ? 1 : -1;
+
+                while (control.Left != destination.Left || control.Top != destination.Top)
+                {
+                    try
+                    {
+                        if (control.Left != destination.Left)
+                        {
+                            form.Invoke((Action)delegate()
+                            {
+                                control.Left += directionX;
+                            });
+                        }
+                        if (control.Top != destination.Top)
+                        {
+                            form.Invoke((Action)delegate()
+                            {
+                                control.Top += directionY;
+                            });
+                        }
+                        Thread.Sleep(delay);
+                    }
+                    catch
+                    {
+                        // form could be disposed
+                        break;
+                    }
+                }
+
+                if (onFinish != null) onFinish();
+
+            }).Start();
+        }
     }
 }
