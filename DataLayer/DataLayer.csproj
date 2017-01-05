@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDBManager.cs" />
+    <Compile Include="clsGroupManager.cs" />
+    <Compile Include="clsProjectManager.cs" />
     <Compile Include="clsUserManajer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

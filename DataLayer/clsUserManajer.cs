@@ -11,38 +11,22 @@ namespace DataLayer
 {
     public class clsUserManajer
     {
+        clsDBManager dbMan;
+        clsGroupManager groupMan;
+
         public clsUserManajer(string user, string password)
         {
-            this.username = user;
-            this.password = password;
-
             if(user == null || password == null)
             {
-                dbman = new clsDBManager("", "");
+                dbMan = new clsDBManager("", "");
+                groupMan = new clsGroupManager("", "");
             }
             else
             {
-                dbman = new clsDBManager(user, password);
+                dbMan = new clsDBManager(user, password);
+                groupMan = new clsGroupManager(user, password);
             }
         }
-
-        private string username;
-
-        public string Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        private string password;
-
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
-        }
-
-        clsDBManager dbman;
 
         public void createAccount(string user, string pass, AccountType acc)
         {
@@ -58,7 +42,7 @@ namespace DataLayer
                 }
                 else
                 {
-                    dbman.createAccount(user, pass, acc);
+                    dbMan.createAccount(user, pass, acc);
                 }
             }
             catch (Exception e) 
@@ -66,9 +50,7 @@ namespace DataLayer
                 throw e;
             }
 
-            this.username = user;
-            this.password = pass;
-            dbman = new clsDBManager(username, password);
+            dbMan = new clsDBManager(user, pass);
         }
 
         public entUsuario login(string user, string password)
@@ -98,7 +80,7 @@ namespace DataLayer
 
             try
             {
-                data = dbman.search("select * from usuario where activo = 1 and nombre = '" + name + "', and contrasena = '" + password + "'");
+                data = dbMan.search("select * from usuario where activo = 1 and nombre = '" + name + "', and contrasena = '" + password + "'");
             }
             catch (Exception e)
             {
@@ -118,11 +100,48 @@ namespace DataLayer
             user.CategoriaF = Convert.ToInt32(data.Rows[0]["categoriaF"]);
             user.Especialidades = Convert.ToString(data.Rows[0]["especialidades"]);
             user.Experiencia = Convert.ToInt32(data.Rows[0]["experiencia"]);
-            user.Grupo = grupoMan.getGrupo(Convert.ToInt32(data.Rows[0]["idGrupo"]));
+            user.Grupo = groupMan.getGrupo(Convert.ToInt32(data.Rows[0]["idGrupo"]));
             user.NContribuciones = Convert.ToInt32(data.Rows[0]["nContribuciones"]);
             user.Nivel = Convert.ToInt32(data.Rows[0]["nivel"]);
             user.NProyectosActuales = Convert.ToInt32(data.Rows[0]["nProyectosActuales"]);
-            user.Proyectos = proyectoMan.getProjectsByUser(user.IdUsuario);
+            user.Proyectos = projectMan.getProjectsByUser(user.IdUsuario);
+            user.Tipo = Convert.ToString(data.Rows[0]["tipo"]);
+
+            return user;
+        }
+
+        public entUsuario getUser(int id)
+        {
+            DataTable data = new DataTable();
+            entUsuario user = new entUsuario();
+
+            try
+            {
+                data = dbMan.search("select * from usuario where activo = 1 and id = " + id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            user.IdUsuario = Convert.ToInt32(data.Rows[0]["idUsuario"]);
+            user.Nombre = Convert.ToString(data.Rows[0]["nombre"]);
+            user.Contrasena = Convert.ToString(data.Rows[0]["contrasena"]);
+            user.Activo = Convert.ToInt32(data.Rows[0]["activo"]) == 1;
+            user.Bio = Convert.ToString(data.Rows[0]["bio"]);
+            user.Categoria = Convert.ToChar(data.Rows[0]["categoria"]);
+            user.CategoriaA = Convert.ToInt32(data.Rows[0]["categoriaA"]);
+            user.CategoriaB = Convert.ToInt32(data.Rows[0]["categoriaB"]);
+            user.CategoriaC = Convert.ToInt32(data.Rows[0]["categoriaC"]);
+            user.CategoriaD = Convert.ToInt32(data.Rows[0]["categoriaD"]);
+            user.CategoriaF = Convert.ToInt32(data.Rows[0]["categoriaF"]);
+            user.Especialidades = Convert.ToString(data.Rows[0]["especialidades"]);
+            user.Experiencia = Convert.ToInt32(data.Rows[0]["experiencia"]);
+            user.Grupo = groupMan.getGrupo(Convert.ToInt32(data.Rows[0]["idGrupo"]));
+            user.NContribuciones = Convert.ToInt32(data.Rows[0]["nContribuciones"]);
+            user.Nivel = Convert.ToInt32(data.Rows[0]["nivel"]);
+            user.NProyectosActuales = Convert.ToInt32(data.Rows[0]["nProyectosActuales"]);
+            user.Proyectos = projectMan.getProjectsByUser(user.IdUsuario);
             user.Tipo = Convert.ToString(data.Rows[0]["tipo"]);
 
             return user;
@@ -135,7 +154,7 @@ namespace DataLayer
 
             try
             {
-                data = dbman.search("select * from usuario where activo = 1 and nombre = '" + name + "'");
+                data = dbMan.search("select * from usuario where activo = 1 and nombre = '" + name + "'");
             }
             catch (Exception e)
             {
@@ -155,11 +174,11 @@ namespace DataLayer
             user.CategoriaF = Convert.ToInt32(data.Rows[0]["categoriaF"]);
             user.Especialidades = Convert.ToString(data.Rows[0]["especialidades"]);
             user.Experiencia = Convert.ToInt32(data.Rows[0]["experiencia"]);
-            user.Grupo = grupoMan.getGrupo(Convert.ToInt32(data.Rows[0]["idGrupo"]));
+            user.Grupo = groupMan.getGrupo(Convert.ToInt32(data.Rows[0]["idGrupo"]));
             user.NContribuciones = Convert.ToInt32(data.Rows[0]["nContribuciones"]);
             user.Nivel = Convert.ToInt32(data.Rows[0]["nivel"]);
             user.NProyectosActuales = Convert.ToInt32(data.Rows[0]["nProyectosActuales"]);
-            user.Proyectos = proyectoMan.getProjectsByUser(user.IdUsuario);
+            user.Proyectos = projectMan.getProjectsByUser(user.IdUsuario);
             user.Tipo = Convert.ToString(data.Rows[0]["tipo"]);
 
             return user;
@@ -171,7 +190,7 @@ namespace DataLayer
             try
             {
                 string query = "UPDATE Usuario Set nombre = '" + user.Nombre + "', contrasena = '" + user.Contrasena + "', bio = '" + user.Bio + "', especialidades = '" + user.Especialidades + "', nProyectosActuales = '" + user.NProyectosActuales + "', nContribuciones = " + user.NContribuciones + ", nivel = '" + user.Nivel + "', experiencia = '" + user.Experiencia + "', categoriaA = '" + user.CategoriaA + "', categoriaB = '" + user.CategoriaB + "', categoriaC = '" + user.CategoriaC + "', categoriaD = '" + user.CategoriaD + "', categoriaF = '" + user.CategoriaF + "', categoria = '" + user.Categoria + "', tipo = '" + user.Tipo + "', activo = '" + user.Activo + "', idGrupo = '" + user.Grupo + "' WHERE idUsuario =" + user.IdUsuario + ";";
-                rows = dbman.execute(query, QueryType.UPDATE);
+                rows = dbMan.execute(query, QueryType.UPDATE);
             }
             catch (Exception e)
             {
@@ -189,7 +208,7 @@ namespace DataLayer
 
             try
             {
-                dt = dbman.search("SELECT * FROM Usuario;");
+                dt = dbMan.search("SELECT * FROM Usuario;");
             }
             catch (Exception e)
             {
@@ -216,13 +235,18 @@ namespace DataLayer
                 a.CategoriaF = Convert.ToInt32(dr["categoriaF"]);
                 a.Tipo = Convert.ToString(dr["tipo"]);
                 a.Activo = Convert.ToInt32(dr["activo"]) == 1;
-                a.Grupo = grupoMan.getGrupo(Convert.ToInt32(dr["idGrupo"]));
+                a.Grupo = groupMan.getGrupo(Convert.ToInt32(dr["idGrupo"]));
                 a.Categoria = Convert.ToChar(dr["categoria"]);
 
                 list.Add(a);
             }
 
             return list;
+        }
+
+        public List<entUsuario> getContribuidores(int idProyecto)
+        {
+            throw new NotImplementedException();
         }
     }
 }
