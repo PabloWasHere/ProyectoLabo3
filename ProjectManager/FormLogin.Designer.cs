@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.logControl = new ControlLibrary.LoginControl();
             this.signControl = new ControlLibrary.SignupControl();
+            this.logControl = new ControlLibrary.LoginControl();
             this.SuspendLayout();
-            // 
-            // logControl
-            // 
-            this.logControl.Location = new System.Drawing.Point(72, 30);
-            this.logControl.Name = "logControl";
-            this.logControl.Size = new System.Drawing.Size(460, 440);
-            this.logControl.TabIndex = 0;
-            this.logControl.SignupLinkClick += new System.EventHandler(this.logControl_SignupLinkClick);
-            this.logControl.Load += new System.EventHandler(this.logControl_Load);
             // 
             // signControl
             // 
@@ -50,6 +41,16 @@
             this.signControl.TabIndex = 1;
             this.signControl.UsernameHint = true;
             this.signControl.WrongPassword = false;
+            // 
+            // logControl
+            // 
+            this.logControl.Location = new System.Drawing.Point(72, 30);
+            this.logControl.Name = "logControl";
+            this.logControl.Size = new System.Drawing.Size(460, 440);
+            this.logControl.TabIndex = 0;
+            this.logControl.LoginButtonClick += new System.EventHandler(this.logControl_LoginButtonClick);
+            this.logControl.SignupLinkClick += new System.EventHandler(this.logControl_SignupLinkClick);
+            this.logControl.Load += new System.EventHandler(this.logControl_Load);
             // 
             // FormLogin
             // 

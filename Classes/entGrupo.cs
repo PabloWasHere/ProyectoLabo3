@@ -56,12 +56,12 @@ namespace Classes
             set { activo = value; }
         }
 
-        private int idLider;
+        private entUsuario lider;
 
-        public int IdLider
+        public entUsuario Lider
         {
-            get { return idLider; }
-            set { idLider = value; }
+            get { return lider; }
+            set { lider = value; }
         }
     }
 }

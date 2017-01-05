@@ -24,6 +24,14 @@ namespace Classes
             set { nombre = value; }
         }
 
+        private string contrasena;
+
+        public string Contrasena
+        {
+            get { return contrasena; }
+            set { contrasena = value; }
+        }
+      
         private string bio;
 
         public string Bio
@@ -136,12 +144,20 @@ namespace Classes
             set { activo = value; }
         }
 
-        private int idGrupo;
+        private entGrupo grupo;
 
-        public int IdGrupo
+        public entGrupo Grupo
         {
-            get { return idGrupo; }
-            set { idGrupo = value; }
+            get { return grupo; }
+            set { grupo = value; }
+        }
+
+        private List<entProyecto> proyectos;
+
+        public List<entProyecto> Proyectos
+        {
+            get { return proyectos; }
+            set { proyectos = value; }
         }
     }
 }

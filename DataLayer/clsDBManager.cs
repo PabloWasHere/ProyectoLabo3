@@ -58,7 +58,7 @@ namespace DataLayer
 
         public string connectionString()
         {
-            if (user == "" && password == "")
+            if ((user == "" || user == null) || (password == "" || password == null))
             {
                 strcnn = "Data Source=" + server + ";Initial Catalog=" + dataBase + ";Integrated Security=True";
             }
@@ -101,7 +101,7 @@ namespace DataLayer
 
                 if (acc == AccountType.ADMIN)
                 {
-                    cmd.CommandText = "INSERT INTO Usuario (nombre, tipo) VALUES (" + username + ", " + "A); GRANT SELECT, INSERT, UPDATE, DELETE TO " + username + ";";
+                    cmd.CommandText = "INSERT INTO Usuario (nombre, contrasena, tipo) VALUES (" + username + ", " + password + ", " + "A); GRANT SELECT, INSERT, UPDATE, DELETE TO " + username + ";";
                     cmd.ExecuteNonQuery();
                 }
                 else

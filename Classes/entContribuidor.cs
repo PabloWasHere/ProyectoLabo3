@@ -8,20 +8,20 @@ namespace Classes
 {
     public class entContribuidor
     {
-        private int idUsuario;
+        private entUsuario usuario;
 
-        public int IdUsuario
+        public entUsuario Usuario
         {
-            get { return idUsuario; }
-            set { idUsuario = value; }
+            get { return usuario; }
+            set { usuario = value; }
         }
 
-        private int idProyecto;
+        private entProyecto proyecto;
 
-        public int IdProyecto
+        public entProyecto Proyecto
         {
-            get { return idProyecto; }
-            set { idProyecto = value; }
+            get { return proyecto; }
+            set { proyecto = value; }
         }
     }
 }

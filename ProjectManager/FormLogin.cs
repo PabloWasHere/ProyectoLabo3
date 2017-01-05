@@ -16,6 +16,7 @@ namespace ProjectManager
         public FormLogin()
         {
             InitializeComponent();
+            //masterDetailButtonList1.addItem(new ControlLibrary.MasterDetailItem());
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -32,6 +33,11 @@ namespace ProjectManager
         {
             ///logControl.Visible = false;
             Util.slideToDestination(this, sender as Control, signControl, 0, null);
+        }
+
+        private void logControl_LoginButtonClick(object sender, EventArgs e)
+        {
+
         }
 
         

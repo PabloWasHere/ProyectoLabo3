@@ -40,36 +40,36 @@ namespace Classes
             set { fecha = value; }
         }
 
-        private int idUsuario;
+        private entUsuario usuario;
 
-        public int IdUsuario
+        public entUsuario Usuario
         {
-            get { return idUsuario; }
-            set { idUsuario = value; }
+            get { return usuario; }
+            set { usuario = value; }
         }
 
-        private int idProyecto;
+        private entProyecto proyecto;
 
-        public int IdProyecto
+        public entProyecto Proyecto
         {
-            get { return idProyecto; }
-            set { idProyecto = value; }
+            get { return proyecto; }
+            set { proyecto = value; }
         }
 
-        private int idGrupo;
+        private entGrupo grupo;
 
-        public int IdGrupo
+        public entGrupo Grupo
         {
-            get { return idGrupo; }
-            set { idGrupo = value; }
+            get { return grupo; }
+            set { grupo = value; }
         }
 
-        private int idPaso;
+        private entPaso paso;
 
-        public int IdPaso
+        public entPaso Paso
         {
-            get { return idPaso; }
-            set { idPaso = value; }
+            get { return paso; }
+            set { paso = value; }
         }
     }
 }
