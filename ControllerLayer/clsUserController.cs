@@ -5,21 +5,49 @@ using System.Text;
 using System.Threading.Tasks;
 using Classes;
 using DataLayer;
+using Interfaces;
 
 namespace ControllerLayer
 {
-    class clsUserController
+    public class clsUserController
     {
         clsUserManajer userMan;
 
         public void clsUserManajer(string user, string password)
         {
-            userMan = new clsUserManajer(user, password);
+            userMan = new clsUserManajer();
         }
 
-        public entUsuario login(string user, string password)
+        public entUsuario Login(string user, string password)
         {
+            entUsuario userInstance;
 
+            try
+            {
+                userInstance = userMan.login(user, password);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return userInstance;
+        }
+
+        public entUsuario Signup(string user, string password)
+        {
+            entUsuario userInstance;
+
+            try
+            {
+                userInstance = userMan.createAccount(user, password, AccountType.NORMAL);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return userInstance;
         }
     }
 }

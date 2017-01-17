@@ -29,14 +29,14 @@ namespace ControlLibrary
             }
         }
 
-        private bool EmailField = true;
+        private bool emailField = true;
 
-        public bool EmailField1
+        public bool EmailField
         {
-            get { return EmailField; }
+            get { return emailField; }
             set 
             { 
-                EmailField = value;
+                emailField = value;
                 this.htbMail.Visible = value;
             }
         }
@@ -50,6 +50,30 @@ namespace ControlLibrary
             { 
                 wrongPassword = value;
                 this.lblWrongPass.Visible = value;
+            }
+        }
+
+        private string userText;
+
+        public string UserText
+        {
+            get { return userText; }
+            set
+            {
+                userText = value;
+                htbUser.Text = value;
+            }
+        }
+
+        private string passwordText;
+
+        public string PasswordText
+        {
+            get { return passwordText; }
+            set
+            {
+                passwordText = value;
+                htbPass.Text = value;
             }
         }
 

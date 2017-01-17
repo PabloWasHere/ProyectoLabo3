@@ -11,20 +11,11 @@ namespace DataLayer
     public class clsGroupManager
     {
         clsDBManager dbMan;
-        clsUserManajer userMan;
+        clsUserManajer userMan = new clsUserManajer();
 
-        public clsGroupManager(string user, string password)
+        public clsGroupManager()
         {
-            if(user == null || password == null)
-            {
-                dbMan = new clsDBManager("", "");
-                userMan = new clsUserManajer("", "");
-            }
-            else
-            {
-                dbMan = new clsDBManager(user, password);
-                userMan = new clsUserManajer(user, password);
-            }
+            dbMan = new clsDBManager(Session.User.Usuario, Session.User.Contrasena);
         }
 
         public entGrupo getGrupo(int id)

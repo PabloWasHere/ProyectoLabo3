@@ -101,12 +101,12 @@ namespace DataLayer
 
                 if (acc == AccountType.ADMIN)
                 {
-                    cmd.CommandText = "INSERT INTO Usuario (nombre, contrasena, tipo) VALUES (" + username + ", " + password + ", " + "A); GRANT SELECT, INSERT, UPDATE, DELETE TO " + username + ";";
+                    cmd.CommandText = "INSERT INTO Usuario (usuario, contrasena, tipo, nivel, nombre, nProyectosActuales, nContribuciones, experiencia, categoriaA, categoriaB, categoriaC, categoriaD, categoriaF, activo) VALUES ('" + username + "', '" + password + "', A, 0, '" + username + "' 0, 0, 0, 0, 0, 0, 0, 0, 1); GRANT SELECT, INSERT, UPDATE, DELETE TO " + username + ";";
                     cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    cmd.CommandText += "INSERT INTO person (nombre, tipo) VALUES (" + username + ", " + "N); GRANT SELECT, INSERT, UPDATE TO " + username + ";";
+                    cmd.CommandText += "INSERT INTO usuario (usuario, contrasena, tipo, nivel, nombre, nProyectosActuales, nContribuciones, experiencia, categoriaA, categoriaB, categoriaC, categoriaD, categoriaF, activo) VALUES ('" + username + "', '" + password + "', N, 0, '" + username + "' 0, 0, 0, 0, 0, 0, 0, 0, 1); GRANT SELECT, INSERT, UPDATE TO " + username + ";";
                     cmd.ExecuteNonQuery();
                 }
 

@@ -24,6 +24,14 @@ namespace Classes
             set { nombre = value; }
         }
 
+        private string usuario;
+
+        public string Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
         private string contrasena;
 
         public string Contrasena
@@ -73,7 +81,11 @@ namespace Classes
         }
 
         private int experiencia;
-
+        /// <summary>
+        /// <para>Experiencia necesitada hasta el proximo nivel:</para>
+        /// <para>50/3*(x^3-6*x^2+17*x-12)</para>
+        /// X = Nivel
+        /// </summary>
         public int Experiencia
         {
             get { return experiencia; }
@@ -158,6 +170,11 @@ namespace Classes
         {
             get { return proyectos; }
             set { proyectos = value; }
+        }
+
+        public int getExpNeeded(int level)
+        {
+            return (50 / 3 * (level ^ 3 - 6 * level ^ 2 + 17 * level - 12));
         }
     }
 }

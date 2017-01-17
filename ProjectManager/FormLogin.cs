@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Classes;
+using ControllerLayer;
 
 namespace ProjectManager
 {
     public partial class FormLogin : Form
     {
+        clsUserController userCon = new clsUserController();
+
         public FormLogin()
         {
             InitializeComponent();
@@ -37,9 +41,42 @@ namespace ProjectManager
 
         private void logControl_LoginButtonClick(object sender, EventArgs e)
         {
+            entUsuario user = new entUsuario();
 
+            try
+            {
+                user = userCon.Login(logControl.UserText, logControl.PasswordText);
+
+                Session.User = user;
+
+                new FormProfile().Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                logControl.UserText = "";
+                logControl.PasswordText = "";
+            }
         }
 
-        
+        private void signControl_SignupButtonClick(object sender, EventArgs e)
+        {
+            entUsuario user;
+
+            try
+            {
+                user = userCon.Signup(signControl.UserText, signControl.PasswordText);
+                Session.User = user;
+
+                new FormProfile().Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

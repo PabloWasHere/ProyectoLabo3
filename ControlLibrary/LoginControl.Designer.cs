@@ -32,8 +32,8 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lnklblSignUp = new System.Windows.Forms.LinkLabel();
             this.lblSession = new System.Windows.Forms.Label();
-            this.hintTextBox2 = new ControlLibrary.hintTextBox();
-            this.hintTextBox1 = new ControlLibrary.hintTextBox();
+            this.passwordBox = new ControlLibrary.hintTextBox();
+            this.userBox = new ControlLibrary.hintTextBox();
             this.SuspendLayout();
             // 
             // chbRememberMe
@@ -78,34 +78,36 @@
             this.lblSession.TabIndex = 5;
             this.lblSession.Text = "Inicio de sesión";
             // 
-            // hintTextBox2
+            // passwordBox
             // 
-            this.hintTextBox2.ForeColor = System.Drawing.Color.Gray;
-            this.hintTextBox2.Hint = "Contraseña";
-            this.hintTextBox2.Location = new System.Drawing.Point(106, 192);
-            this.hintTextBox2.Name = "hintTextBox2";
-            this.hintTextBox2.PasswordTextbox = true;
-            this.hintTextBox2.Size = new System.Drawing.Size(248, 20);
-            this.hintTextBox2.TabIndex = 7;
-            this.hintTextBox2.Text = "Contraseña";
+            this.passwordBox.ForeColor = System.Drawing.Color.Gray;
+            this.passwordBox.Hint = "Contraseña";
+            this.passwordBox.Location = new System.Drawing.Point(106, 192);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordTextbox = true;
+            this.passwordBox.Size = new System.Drawing.Size(248, 20);
+            this.passwordBox.TabIndex = 7;
+            this.passwordBox.Text = "Contraseña";
+            this.passwordBox.TextChanged += new System.EventHandler(this.passwordBox_TextChanged);
             // 
-            // hintTextBox1
+            // userBox
             // 
-            this.hintTextBox1.ForeColor = System.Drawing.Color.Gray;
-            this.hintTextBox1.Hint = "Usuario";
-            this.hintTextBox1.Location = new System.Drawing.Point(106, 145);
-            this.hintTextBox1.Name = "hintTextBox1";
-            this.hintTextBox1.PasswordTextbox = false;
-            this.hintTextBox1.Size = new System.Drawing.Size(248, 20);
-            this.hintTextBox1.TabIndex = 6;
-            this.hintTextBox1.Text = "Usuario";
+            this.userBox.ForeColor = System.Drawing.Color.Gray;
+            this.userBox.Hint = "Usuario";
+            this.userBox.Location = new System.Drawing.Point(106, 145);
+            this.userBox.Name = "userBox";
+            this.userBox.PasswordTextbox = false;
+            this.userBox.Size = new System.Drawing.Size(248, 20);
+            this.userBox.TabIndex = 6;
+            this.userBox.Text = "Usuario";
+            this.userBox.TextChanged += new System.EventHandler(this.userBox_TextChanged);
             // 
             // LoginControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.hintTextBox2);
-            this.Controls.Add(this.hintTextBox1);
+            this.Controls.Add(this.passwordBox);
+            this.Controls.Add(this.userBox);
             this.Controls.Add(this.lnklblSignUp);
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.btnLogin);
@@ -123,7 +125,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lnklblSignUp;
         private System.Windows.Forms.Label lblSession;
-        private hintTextBox hintTextBox1;
-        private hintTextBox hintTextBox2;
+        private hintTextBox userBox;
+        private hintTextBox passwordBox;
     }
 }

@@ -119,6 +119,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Classes\Classes.csproj">
+      <Project>{cdeaff5c-a94e-4f75-9456-f8f5a7062127}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControllerLayer\ControllerLayer.csproj">
+      <Project>{4f678be4-a25e-473b-af8d-0bdd10f9de9f}</Project>
+      <Name>ControllerLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ControlLibrary\ControlLibrary.csproj">
       <Project>{89808FCD-8255-483E-AE77-0A1CAE58A352}</Project>
       <Name>ControlLibrary</Name>

@@ -11,23 +11,14 @@ namespace DataLayer
     class clsProjectManager
     {
         clsDBManager dbMan;
-        clsUserManajer userMan;
+        clsUserManajer userMan = new clsUserManajer();
 
-        public clsProjectManager(string user, string password)
+        public clsProjectManager()
         {
-            if(user == null || password == null)
-            {
-                dbMan = new clsDBManager("", "");
-                userMan = new clsUserManajer("", "");
-            }
-            else
-            {
-                dbMan = new clsDBManager(user, password);
-                userMan = new clsUserManajer(user, password);
-            }
+            dbMan = new clsDBManager(Session.User.Usuario, Session.User.Contrasena);
         }
 
-        public List<entProyecto> getProyectosByUser(entUsuario user)
+        public List<entProyecto> getProjectsByUser(int userId)
         {
             DataTable data = new DataTable();
             DataTable data2 = new DataTable();
@@ -35,7 +26,7 @@ namespace DataLayer
 
             try
             {
-                data = dbMan.search("select * from proyecto where activo = 1 and idLider = " + user.IdUsuario);
+                data = dbMan.search("select * from proyecto where activo = 1 and idLider = " + userId);
             }
             catch (Exception e)
             {

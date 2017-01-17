@@ -34,13 +34,14 @@
             // 
             // signControl
             // 
-            this.signControl.EmailField1 = true;
+            this.signControl.EmailField = true;
             this.signControl.Location = new System.Drawing.Point(72, 418);
             this.signControl.Name = "signControl";
             this.signControl.Size = new System.Drawing.Size(460, 440);
             this.signControl.TabIndex = 1;
             this.signControl.UsernameHint = true;
             this.signControl.WrongPassword = false;
+            this.signControl.SignupButtonClick += new System.EventHandler(this.signControl_SignupButtonClick);
             // 
             // logControl
             // 
